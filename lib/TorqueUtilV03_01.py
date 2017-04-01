@@ -36,13 +36,14 @@ def lang():
 
     basepath = getBasepath()
     DIR = os.path.join(basepath, DIR_LOCALE)
-    lang = wx.Locale(wx.LANGUAGE_DEFAULT).GetCanonicalName().split('_')
+    # lang = wx.Locale(wx.LANGUAGE_DEFAULT).GetCanonicalName().split('_')
 
-    try:
-        t = gettext.translation(APPLICATION, DIR, languages=[lang[0]])
-    except IOError:
-        t = gettext.translation(APPLICATION, DIR, languages=['en'])
+    # try:
+    #     t = gettext.translation(APPLICATION, DIR, languages=[lang[0]])
+    # except IOError:
+    #     t = gettext.translation(APPLICATION, DIR, languages=['en'])
 
+    t = gettext.translation(APPLICATION, DIR, languages=['en'])
     return t.lgettext
 
 
