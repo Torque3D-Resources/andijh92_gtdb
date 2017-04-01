@@ -56,48 +56,48 @@ class ConnectPanel(wx.Dialog):
         large = 200
         height = 30
 
-                # directory game
+        # directory game
 
         l1 = wx.StaticText(self, -1, _('_dir_game-lib'))
         self.t1 = wx.TextCtrl(self, -1, '', size=(large, height))
         b1 = wx.Button(self, -1, _('_browse'), size=(-1, height))
         self.Bind(wx.EVT_BUTTON, self.browseGameDir, b1)
 
-                # torque script main file
+        # torque script main file
 
         l2 = wx.StaticText(self, -1, _('_file_script-lib'))
         self.t2 = wx.TextCtrl(self, -1, '', size=(large, height))
         b2 = wx.Button(self, -1, _('_browse'), size=(-1, height))
         self.Bind(wx.EVT_BUTTON, self.browseTorqueScript, b2)
 
-                # exe or bianry file of the game
+        # exe or bianry file of the game
 
         l3 = wx.StaticText(self, -1, _('_file_binary-lib'))
         self.t3 = wx.TextCtrl(self, -1, '', size=(large, height))
         b3 = wx.Button(self, -1, _('_browse'), size=(-1, height))
         self.Bind(wx.EVT_BUTTON, self.browseBinary, b3)
 
-                # parameter to use by the binary or exe file
+        # parameter to use by the binary or exe file
 
         l5 = wx.StaticText(self, -1, _('_unix_para-lib'))
         self.t5 = wx.TextCtrl(self, -1, '', size=(large, height))
 
-                # port to connect
+        # port to connect
 
         l6 = wx.StaticText(self, -1, _('_port-lib'))
         self.t6 = wx.TextCtrl(self, -1, '', size=(large, height))
 
-                # password
+        # password
 
         l7 = wx.StaticText(self, -1, _('_pwd-lib'))
         self.t7 = wx.TextCtrl(self, -1, '', size=(large, height))
 
-                # host ip address
+        # host ip address
 
         l8 = wx.StaticText(self, -1, _('_host-lib'))
         self.t8 = wx.TextCtrl(self, -1, '', size=(large, height))
 
-                # directory engine lib
+        # directory engine lib
 
         l9 = wx.StaticText(self, -1, _('_dir_engine-lib'))
         self.t9 = wx.TextCtrl(self, -1, '', size=(large, height))
@@ -111,7 +111,7 @@ class ConnectPanel(wx.Dialog):
                            size=(-1, height))
         self.Bind(wx.EVT_BUTTON, self.cancelMenu, cancel)
 
-                # gui arrangement
+        # gui arrangement
 
         sizer = wx.FlexGridSizer(cols=3, hgap=0, vgap=0)
         sizer.AddMany([
@@ -151,13 +151,13 @@ class ConnectPanel(wx.Dialog):
         self.SetSizer(border)
         self.SetAutoLayout(True)
 
-                # initialisation of the GUI fileds
+        # initialisation of the GUI fileds
 
         self.t1.SetValue(self.mainFrame.menu.getParameter(GAME_DIRECTORY))
 
         if self.mainFrame.menu.getParameter(GAME_DIRECTORY):
 
-                    # if a debugger parameters file has been loaded previously display what is loaded
+            # if a debugger parameters file has been loaded previously display what is loaded
 
             self.t2.SetValue(self.mainFrame.menu.getParameter(GAME_FILESCRIPT))
             self.t3.SetValue(self.mainFrame.menu.getParameter(GAME_FILEBINARY))
@@ -168,7 +168,7 @@ class ConnectPanel(wx.Dialog):
             self.t9.SetValue(self.mainFrame.menu.getParameter(DIR_ENGINE))
         else:
 
-                    # if nothing has been loaded previously : display default parameters
+            # if nothing has been loaded previously : display default parameters
 
             self.t2.SetValue(self.mainFrame.menu.getParameter(GAME_FILESCRIPT,
                              CONNECT_MAIN))
@@ -190,7 +190,7 @@ class ConnectPanel(wx.Dialog):
 
     def browseGameDir(self, event):
 
-            # selection of the directory
+        # selection of the directory
 
         dlg = wx.DirDialog(self, _('_choose_dir-lib'),
                            style=wx.DD_DEFAULT_STYLE)
@@ -202,7 +202,7 @@ class ConnectPanel(wx.Dialog):
 
     def browseEngineDir(self, event):
 
-            # selection of the directory
+        # selection of the directory
 
         dlg = wx.DirDialog(self, _('_choose_dir-lib'),
                            style=wx.DD_DEFAULT_STYLE)
@@ -214,7 +214,7 @@ class ConnectPanel(wx.Dialog):
 
     def browseGameFile(self):
 
-            # selection of the file
+        # selection of the file
 
         val = ''
         dlg = wx.FileDialog(self, _('_choose_file-lib'),
@@ -230,7 +230,7 @@ class ConnectPanel(wx.Dialog):
 
     def browseGameDirFile(self):
 
-            # selection of the file
+        # selection of the file
 
         val = ''
         dlg = wx.FileDialog(self, _('_choose_file-lib'),
@@ -246,19 +246,19 @@ class ConnectPanel(wx.Dialog):
 
     def browseTorqueScript(self, event):
 
-            # selection of torque script
+        # selection of torque script
 
         self.t2.SetValue(self.browseGameFile())
 
     def browseMission(self, event):
 
-            # selection of mission
+        # selection of mission
 
         self.t5_1.SetValue(self.browseGameDirFile())
 
     def browseBinary(self, event):
 
-            # selection of the binary game
+        # selection of the binary game
 
         self.t3.SetValue(self.browseGameFile())
 
@@ -267,11 +267,11 @@ class ConnectPanel(wx.Dialog):
 
     def okMenu(self, event):
 
-            # control the information fullfil in the GUI
+        # control the information fullfil in the GUI
 
         error = ''
 
-            # directory is mandatory
+        # directory is mandatory
 
         fil = self.t1.GetValue()
         if os.path.isdir(fil):
@@ -280,7 +280,7 @@ class ConnectPanel(wx.Dialog):
             error = error + _('_dir_game-lib') + ' : ' + _('_Mandatory'
                     ) + '\n'
 
-            # torque script is mandatory
+        # torque script is mandatory
 
         x = self.t2.GetValue()
         if os.path.isfile(os.path.join(self.t1.GetValue(), x)):
@@ -289,7 +289,7 @@ class ConnectPanel(wx.Dialog):
             error = error + _('_file_script-lib') + ' : ' \
                 + _('_Mandatory') + '\n'
 
-            # binary or exe file is mandatory
+        # binary or exe file is mandatory
 
         x = self.t3.GetValue()
         if os.path.isfile(os.path.join(self.t1.GetValue(), x)):
@@ -298,7 +298,7 @@ class ConnectPanel(wx.Dialog):
             error = error + _('_file_binary-lib') + ' : ' \
                 + _('_Mandatory') + '\n'
 
-            # parameter for exe of binary file not mandatory
+        # parameter for exe of binary file not mandatory
 
         x = self.t5.GetValue()
         if x:
@@ -311,7 +311,7 @@ class ConnectPanel(wx.Dialog):
         else:
             self.mainFrame.menu.setParameter(GAME_UNIXPARA, '')
 
-            # address IP  is mandatory
+        # address IP  is mandatory
 
         x = self.t8.GetValue()
         if x:
@@ -320,7 +320,7 @@ class ConnectPanel(wx.Dialog):
             error = error + _('_host-lib') + ' : ' + _('_Mandatory') \
                 + '\n'
 
-            # address port  is mandatory
+        # address port  is mandatory
 
         x = self.t6.GetValue()
         if x:
@@ -329,7 +329,7 @@ class ConnectPanel(wx.Dialog):
             error = error + _('_port-lib') + ' : ' + _('_Mandatory') \
                 + '\n'
 
-            # password is mandatory
+        # password is mandatory
 
         x = self.t7.GetValue()
         if x:
@@ -338,7 +338,7 @@ class ConnectPanel(wx.Dialog):
             error = error + _('_pwd-lib') + ' : ' + _('_Mandatory') \
                 + '\n'
 
-            # directory is mandatory
+        # directory is mandatory
 
         fileng = self.t9.GetValue()
         if fileng:
@@ -348,7 +348,7 @@ class ConnectPanel(wx.Dialog):
                 error = error + _('_dir_engine-lib') + ' : ' \
                     + _('_unknown') + '\n'
 
-            # dsiplay all the errors messages
+        # dsiplay all the errors messages
 
         if error:
             MsgDlg(self, error, _('_error_connect-lib'), wx.ICON_HAND)

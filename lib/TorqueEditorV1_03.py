@@ -64,7 +64,7 @@ class PythonSTC(wx.stc.StyledTextCtrl):
 
         self.mainFrame = mainFrame
 
-            # style identifier
+        # style identifier
 
         self.key1 = 1
         self.key2 = 2
@@ -85,71 +85,71 @@ class PythonSTC(wx.stc.StyledTextCtrl):
 
         self.EmptyUndoBuffer()
 
-            # no lexer defined , the standard one is taken into account
+        # no lexer defined , the standard one is taken into account
 
         self.SetLexer(wx.stc.STC_LEX_CONTAINER)
         wx.stc.EVT_STC_STYLENEEDED(self, -1, self.OnStyleNeeded)
 
         self.SetMargins(0, 0)
 
-            # Setup a margin to hold fold markers
+        # Setup a margin to hold fold markers
 
         self.SetMarginType(0, wx.stc.STC_MARGIN_NUMBER)
         self.SetMarginWidth(0, 25)
 
-            # define the margin name to use
+        # define the margin name to use
 
         self.SetMarginSensitive(1, True)
         self.SetMarginType(1, wx.stc.STC_MARGIN_SYMBOL)
         self.SetMarginWidth(1, 20)
 
-            # define the markers
+        # define the markers
 
         self.MarkerDefine(0, wx.stc.STC_MARK_ROUNDRECT, '#CCFF00', 'RED'
                           )  # red circle
         self.MarkerDefine(2, wx.stc.STC_MARK_SHORTARROW, 'blue', 'blue')  # blue arrow
 
-            # used to avoid to relaod systematically the text at each call
+        # used to avoid to relaod systematically the text at each call
 
         self.OldFile = ''
 
     def OnMarginClickEditor(self, evt):
 
-            # function lauched by the main menu when a click is done in the margin of the text file
+        # function lauched by the main menu when a click is done in the margin of the text file
 
         self.mainFrame.SetStatusText('')
 
-            # if a click is done in the expected margin
+        # if a click is done in the expected margin
 
         if evt.GetMargin() == 1:
 
-                # get the line number and the line content
+            # get the line number and the line content
 
             lineClicked = self.LineFromPosition(evt.GetPosition())
             line = self.GetLine(lineClicked).lstrip()
             li = str(lineClicked + 1)
 
-                # prepare the data to display in the bottom ofthe screen
+            # prepare the data to display in the bottom ofthe screen
 
             title = self.mainFrame.fileTorque
             data = title + ':' + li
 
             if self.isLignValid(line):
 
-                    # if the marker does not exxist on the line
+                # if the marker does not exxist on the line
 
                 if self.MarkerGet(lineClicked) == 0:
 
-                        # add the red marker
+                    # add the red marker
 
                     self.MarkerAdd(lineClicked, 0)
 
-                        # populate the tab for break point
+                    # populate the tab for break point
 
                     self.mainFrame.nboo.list_breakPoint.Populate(data,
                             '', '')
 
-                        # and send the break order to add the break point into.... the torque debugger
+                    # and send the break order to add the break point into.... the torque debugger
 
                     if self.mainFrame.host:
                         x = 'BRKSET' + ' ' + title + ' ' + li \
@@ -167,16 +167,16 @@ class PythonSTC(wx.stc.StyledTextCtrl):
                 else:
 
                     # if a marker exist in the line
-                        # remove the 2 possible marker
+                    # remove the 2 possible marker
 
                     self.MarkerDelete(lineClicked, 0)
                     self.MarkerDelete(lineClicked, 2)
 
-                        # delete the line in the tab for break point
+                    # delete the line in the tab for break point
 
                     self.mainFrame.nboo.list_breakPoint.Delete(data)
 
-                        # and send the break order to remove the break point into the torque debugger
+                    # and send the break order to remove the break point into the torque debugger
 
                     if self.mainFrame.host:
                         x = 'BRKCLR' + ' ' + title + ' ' + li
@@ -194,19 +194,19 @@ class PythonSTC(wx.stc.StyledTextCtrl):
 
                 # if the line selected is not valid
                 # this could happen when lines are added to the torque script
-                    # if a marker exist
+                # if a marker exist
 
                 if self.MarkerGet(lineClicked) != 0:
 
-                        # remove the marker
+                    # remove the marker
 
                     self.MarkerDelete(lineClicked, 0)
 
-                        # delete the line in the tab for break point
+                    # delete the line in the tab for break point
 
                     self.mainFrame.nboo.list_breakPoint.Delete(data)
 
-                        # and send the break order to remove the break point into the torque debugger
+                    # and send the break order to remove the break point into the torque debugger
 
                     if self.mainFrame.host:
                         x = 'BRKCLR' + ' ' + title + ' ' + li
@@ -223,7 +223,7 @@ class PythonSTC(wx.stc.StyledTextCtrl):
 
     def isLignValid(self, line):
 
-            # check if the lign is valid
+        # check if the lign is valid
 
         if line.startswith('//'):
             return False
@@ -327,7 +327,7 @@ class PythonSTC(wx.stc.StyledTextCtrl):
 
         if os.path.isfile(fil):
 
-                # if the file to load is not the same that the previuos one
+            # if the file to load is not the same that the previuos one
 
             if fil != self.OldFile:
                 self.OldFile = fil
@@ -337,7 +337,7 @@ class PythonSTC(wx.stc.StyledTextCtrl):
                 self.SetText('')
                 self.SetText(self.loadFormat(fil))
 
-                    # self.SetReadOnly(1) V2.3
+                # self.SetReadOnly(1) V2.3
 
                 self.SetReadOnly(0)  # V2.4
                 self.mainFrame.SetTitle(_('torqueDebug') + ' : '
@@ -348,19 +348,19 @@ class PythonSTC(wx.stc.StyledTextCtrl):
 
             if line:
 
-                    # display the text from the requested line
+                # display the text from the requested line
 
                 scroll = int(line)
                 scroll = scroll - 2
                 if scroll < 0:
                     scroll = 1
 
-                    # at each time the text is moved or change the red circle
-                    # should be displayed again
+                # at each time the text is moved or change the red circle
+                # should be displayed again
 
                 if lig:
 
-                        # the list of break point is read in order to retriev the lign with a red circle
+                    # the list of break point is read in order to retriev the lign with a red circle
 
                     liste = \
                         self.mainFrame.nboo.list_breakPoint.GetListLign(lig)
@@ -556,9 +556,9 @@ class PythonSTC(wx.stc.StyledTextCtrl):
                           'size:%d,%s,face:%s,fore:%s,back:%s' % (font,
                           fontt, face, fore, back))
 
-        # V2.4
-        # this function test if the text has been modified when it is needed
 
+    # V2.4
+    # this function test if the text has been modified when it is needed
     def OnModified(self, evt):
         if not self.FileModified:
             if evt.GetModificationType() & wx.stc.STC_MOD_BEFOREINSERT \
@@ -571,16 +571,15 @@ class PythonSTC(wx.stc.StyledTextCtrl):
                 self.mainFrame.SetTitle(self.mainFrame.GetTitle() + '*')
                 self.mainFrame.toolBar.enableSave(True)
 
-        # V2.4
-        # This function save the text modified
-
+    # V2.4
+    # This function save the text modified
     def saveText(self, confirm):
 
         saveok = False
 
         if confirm:
 
-                # when the file is changed a confirmation is requested
+            # when the file is changed a confirmation is requested
 
             if self.FileModified and self.OldFile:
                 result = MsgDlg(self, _('_fileChanged') + '''
@@ -595,7 +594,7 @@ class PythonSTC(wx.stc.StyledTextCtrl):
                     saveok = True
         else:
 
-                # when save by menu or toolbar icon click
+            # when save by menu or toolbar icon click
 
             saveok = True
 
@@ -610,7 +609,7 @@ class PythonSTC(wx.stc.StyledTextCtrl):
 
         self.mainFrame.toolBar.enableSave(False)
 
-            # remove the star to the title
+        # remove the star to the title
 
         self.mainFrame.SetTitle(self.mainFrame.GetTitle().replace('*',
                                 ''))

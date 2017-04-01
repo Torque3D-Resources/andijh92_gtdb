@@ -153,9 +153,13 @@ class ExtractEngine:
 
                             self.getReportUrlWrite(l, '[()]', fkey2)
 
-                            # -The list of implemented object....accessible from script is build with datablock and netobject
+                            # -The list of implemented object....accessible
+                            # -from script is build with datablock and
+                            # -netobject
+
                             # -Example of line read in the file :
-                            # implement_co_datablock_v1-- implement_co_datablock_v1(tsshapeconstructor);
+                            # implement_co_datablock_v1--
+                            # implement_co_datablock_v1(tsshapeconstructor);
                             # print 'implement--',line
 
                             tab = re.split('[()]', l)
@@ -168,11 +172,15 @@ class ExtractEngine:
 
                             self.getReportUrlWrite(l, '"', fkey3)
 
-                            # -The attributes list of implemented object are build and
-                            # in case of duplicate attributes in different implemented objects
-                            # the list of attributes used in implemented object is build
-                            # -The detail of attributes id stored for each "implemented object / attribute"
-                            # in order to avoid to lost detail attribute information coming from different implemented objects
+                            # -The attributes list of implemented object are
+                            # build and in case of duplicate attributes in
+                            # different implemented objects the list of
+                            # attributes used in implemented object is build
+                            # -The detail of attributes id stored for each
+                            # "implemented object / attribute" in order to
+                            # avoid to lost detail attribute information coming
+                            # from different implemented objects
+
                             # - Example of line read in the file :
                             # addfield("audioenvironment",typeaudioenvironmentptr,offset(maudioenvironment,waterblock));............................
                             # print 'addfield--',line
@@ -208,13 +216,18 @@ class ExtractEngine:
 
                             self.getReportUrlWrite(l, ',', fkey4)
 
-                            # -The methods list of implemented object are build and
-                            # in case of duplicate methods in different implemented objects
-                            # the list of methods used in implemented object is build
-                            # -The detail of methods id stored for each "implemented object / method"
-                            # in order to avoid to lost detail method information coming from different implemented objects
+                            # -The methods list of implemented object are build
+                            # and in case of duplicate methods in different
+                            # implemented objects the list of methods used in
+                            # implemented object is build -The detail of
+                            # methods id stored for each "implemented object /
+                            # method" in order to avoid to lost detail method
+                            # information coming from different implemented
+                            # objects
+
                             # - Example of line read in the file :
-                            # consolemethod-- consolemethod(sky,realfog,void,6,6,"(boolshow,floatmax,floatmin,floatspeed)")
+                            # consolemethod--
+                            # consolemethod(sky,realfog,void,6,6,"(boolshow,floatmax,floatmin,floatspeed)")
                             # print 'consolemethod--',line
 
                             tab = re.split('[(),"]', l)
@@ -253,9 +266,11 @@ class ExtractEngine:
                         elif line.startswith('consolefunctiongroupbegin'
                                 ):
 
-                            # -The function groups list of implemented object are build
-                            # consolefunctiongroupbegin(netinterface, "global control functions for the netinterfaces.");
-                            # print 'consolefunctiongroupbegin--',line
+                            # -The function groups list of implemented object
+                            # are build consolefunctiongroupbegin(netinterface,
+                            # "global control functions for the
+                            # netinterfaces."); print
+                            # 'consolefunctiongroupbegin--',line
 
                             tab = re.split('[(),"]', l, 2)
                             groupFunc = self.formatKey(tab[1])
@@ -267,11 +282,11 @@ class ExtractEngine:
                                     + '|1|functionTitle'] = groupTitle
                         elif line.startswith('consolefunctiongroupend'):
 
-                            # -There is some function without group also value by default are set in
-                            # order to group all these functions
-                            # -Example of line read in the file :
-                            # consolefunctiongroupend(netinterface);
-                            # print 'ConsoleFunctionGroupEnd--',line
+                            # -There is some function without group also value
+                            # by default are set in order to group all these
+                            # functions -Example of line read in the file :
+                            # consolefunctiongroupend(netinterface); print
+                            # 'ConsoleFunctionGroupEnd--',line
 
                             groupFunc = NOGROUP
                             groupTitle = NOGROUP_TITLE
@@ -280,14 +295,18 @@ class ExtractEngine:
                             tab = re.split('"', l)
                             self.getReportUrlWrite(l, '[(,]', fkey5)
 
-                            # -The functions list are build and
-                            # in case of duplicate functions in different implemented group function
-                            # the list of functions used in group function is build
-                            # -The detail of functions id stored for each "group function / function"
-                            # in order to avoid to lost detail function information coming from different group functions
+                            # -The functions list are build and in case of
+                            # duplicate functions in different implemented
+                            # group function the list of functions used in
+                            # group function is build -The detail of functions
+                            # id stored for each "group function / function" in
+                            # order to avoid to lost detail function
+                            # information coming from different group functions
                             # - Example of line read in the file :
-                            # consolefunction(getterrainheight, f32, 2, 2, "(point2i pos) - gets the terrain height at the specified position.")
-                            # print 'consolefunction--',line
+                            # consolefunction(getterrainheight, f32, 2, 2,
+                            # "(point2i pos) - gets the terrain height at the
+                            # specified position.") print
+                            # 'consolefunction--',line
 
                             l = l.replace('"', '')
                             tab = re.split('[(),]', l, 5)
