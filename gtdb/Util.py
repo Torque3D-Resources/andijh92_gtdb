@@ -26,8 +26,8 @@ import os
 import locale
 import gettext
 import shutil
-from Config import *
-from TorqueParameters import *
+from gtdb.Config import *
+from gtdb.Parameters import *
 
 
 def lang():

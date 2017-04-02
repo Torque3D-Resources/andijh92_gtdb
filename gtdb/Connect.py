@@ -24,8 +24,8 @@ import wx
 import os.path
 import os
 
-from TorqueParameters import *
-from TorqueUtil import *
+from gtdb.Parameters import *
+from gtdb.Util import *
 _ = lang()
 
 
