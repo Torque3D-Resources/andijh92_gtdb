@@ -24,8 +24,8 @@ import wx
 import os.path
 import os
 
-from TorqueParametersV02 import *
-from TorqueUtilV03_01 import *
+from TorqueParameters import *
+from TorqueUtil import *
 _ = lang()
 
 

@@ -1,0 +1,5 @@
+"""
+Some information from ./configure.
+"""
+
+ABS_TOP_SRCDIR = '@abs_top_srcdir@'

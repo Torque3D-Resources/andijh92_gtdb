@@ -26,16 +26,15 @@ import os
 import locale
 import gettext
 import shutil
-
-from TorqueParametersV02 import *
+from Config import *
+from TorqueParameters import *
 
 
 def lang():
 
     # by default the english language is selected
 
-    basepath = getBasepath()
-    DIR = os.path.join(basepath, DIR_LOCALE)
+    DIR = os.path.join(ABS_TOP_SRCDIR, DIR_LOCALE)
     # lang = wx.Locale(wx.LANGUAGE_DEFAULT).GetCanonicalName().split('_')
 
     # try:
@@ -83,13 +82,8 @@ def initFileLexer(
     return lig
 
 
-def getBasepath():
-    return os.path.abspath(os.path.dirname(sys.argv[0]))
-
-
 def getFicNameLocale(di, fi):
-    basepath = getBasepath()
-    dire = os.path.join(basepath, DIR_LOCALE)
+    dire = os.path.join(ABS_TOP_SRCDIR, DIR_LOCALE)
     fic = os.path.join(dire, di)
     fic = os.path.join(fic, fi)
 
@@ -101,7 +95,7 @@ def getFileIcon(image):
     # path tyo load the images
 
     icon = os.path.join(DIR_LOCALE, DIR_ICON)
-    icon = os.path.join(getBasepath(), icon)
+    icon = os.path.join(ABS_TOP_SRCDIR, icon)
 
     icon = os.path.join(icon, image)
 

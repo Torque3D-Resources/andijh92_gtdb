@@ -22,8 +22,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 import wx
 
-from TorqueParametersV02 import *
-from TorqueUtilV03_01 import *
+from TorqueParameters import *
+from TorqueUtil import *
 _ = lang()
 
 

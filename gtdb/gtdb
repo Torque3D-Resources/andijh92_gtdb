@@ -34,14 +34,14 @@ import wx.lib.hyperlink
 
 sys.path.append(os.path.join(os.path.dirname(sys.argv[0]), 'lib'))
 
-from TorqueNotebookV1_02 import *
-from TorqueMenuV1_03 import *
-from TorqueSplashV01 import *
-from TorqueToolBarV1_02 import *
-from TorqueTreeV05 import *
+from TorqueNotebook import *
+from TorqueMenu import *
+from TorqueSplash import *
+from TorqueToolBar import *
+from TorqueTree import *
 
-from TorqueParametersV02 import *
-from TorqueUtilV03_01 import *
+from TorqueParameters import *
+from TorqueUtil import *
 
 _ = lang()
 
@@ -678,9 +678,9 @@ class MainApp(wx.App):
 
 
 if __name__ == '__main__':
-    from TorqueConnectV1_02 import *
-    from TorqueConsoleV1_02 import *
-    from TorqueEditorV1_03 import *
+    from TorqueConnect import *
+    from TorqueConsole import *
+    from TorqueEditor import *
 
     app = MainApp(0)
     app.MainLoop()

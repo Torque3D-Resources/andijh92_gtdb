@@ -24,8 +24,8 @@ import wx
 import wx.stc
 import re
 
-from TorqueParametersV02 import *
-from TorqueUtilV03_01 import *
+from TorqueParameters import *
+from TorqueUtil import *
 _ = lang()
 
 if wx.Platform == '__WXMSW__':
