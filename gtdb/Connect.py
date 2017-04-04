@@ -146,7 +146,7 @@ class ConnectPanel(wx.Dialog):
             (0, 0),
             ok,
             ])
-        border = wx.BoxSizer(wx.BOTH)
+        border = wx.BoxSizer(wx.VERTICAL)
         border.Add(sizer, 0, wx.ALL, 25)
         self.SetSizer(border)
         self.SetAutoLayout(True)
