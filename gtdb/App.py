@@ -197,8 +197,8 @@ class MainFrame(wx.Frame):
 
         # ----------- Spash screen --------------------------------------------------
 
-        splash = MySplashScreen()
-        splash.Show()
+#        splash = MySplashScreen()
+#        splash.Show()
 
         # ----------- DISPLAY -------------------------------------------------------
 
@@ -580,10 +580,9 @@ class MainFrame(wx.Frame):
 
         if not self.host:
             try:
-                self.host = telnetlib.Telnet(self.server, self.port)
-                self.host.write(self.password + '\n')
+                self.host = telnetlib.Telnet(self.server, int(self.parameters["port"]))
+                self.host.write(str(self.parameters["pwd"]) + '\n')
             except socket.error, msg:
-                pass
                 return _('_errorSocket') + '\n' \
                     + 'telnetTorque.Start\n' + str(msg)
 
