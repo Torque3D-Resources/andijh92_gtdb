@@ -21,6 +21,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA.... 02110-1301, US
 """
 
 import wx
+import wx.py.PyWrap
 import sys
 import os
 import os.path
@@ -46,6 +47,8 @@ from gtdb.Editor import *
 _ = lang()
 
 EVT_TORQUE_TELNET_ID = wx.NewId()
+
+app = None
 
 
 def EVT_TORQUE_TELNET(win, func):
@@ -109,6 +112,9 @@ class MainFrame(wx.Frame):
         self.Bind(wx.EVT_MENU, self.OnMenu_Help, self.menu.Menu_Help)
         self.Bind(wx.EVT_MENU, self.OnMenu_Credits,
                   self.menu.Menu_Credits)
+
+        self.Bind(wx.EVT_MENU, self.OnMenu_PyRepl,
+                  self.menu.Menu_PyRepl)
 
         self.Bind(wx.EVT_MENU_RANGE, self.OnFileHistory,
                   id=wx.ID_FILE1, id2=wx.ID_FILE9)
@@ -421,6 +427,11 @@ class MainFrame(wx.Frame):
 
         self.menu.saveEnv()
         self.projectSave = True
+
+    def OnMenu_PyRepl(self, event):
+
+        frm=wx.Frame(self, -1, "GTDB Python Repl")
+        wx.py.PyWrap.wrap(app)
 
     def OnResult(self, event):
 

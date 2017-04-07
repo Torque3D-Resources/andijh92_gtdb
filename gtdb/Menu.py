@@ -105,6 +105,10 @@ class Menu(wx.MenuBar):
         self.Menu_Credits = Menu.Append(201, _('&_Credits'),
                 _('_Credits'))
 
+        Menu.AppendSeparator()
+
+        self.Menu_PyRepl = Menu.Append(202, "GTDB Python Repl")
+
         self.Append(Menu, _('&_Help'))
 
         self.fileEnv = ''

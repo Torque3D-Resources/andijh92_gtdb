@@ -20,9 +20,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA.... 02110-1301, USA.
 """
 
-import gtdb
-from gtdb.App import *
+import gtdb.App
 
 if __name__ == '__main__':
-    app = MainApp(0)
-    app.MainLoop()
+    gtdb.App.app = gtdb.App.MainApp(0)
+    gtdb.App.app.MainLoop()
