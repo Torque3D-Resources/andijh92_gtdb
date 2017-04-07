@@ -509,7 +509,7 @@ class LogDisplay(wx.TextCtrl):
                     title = title.replace('\\', '/')  # windows
                     if line:
                         x = 'BRKSET' + ' ' + title + ' ' + line \
-                            + ' 0 0 1\r\n'
+                            + ' 0 0 true\r\n'
                         x = str(x)
 
                         self.getparents().mainFrame.host.write(x)

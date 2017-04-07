@@ -592,7 +592,7 @@ class MainFrame(wx.Frame):
         if not self.host:
             try:
                 self.host = telnetlib.Telnet(self.server, int(self.parameters["port"]))
-                self.host.write(str(self.parameters["pwd"]) + '\n')
+                self.host.write(str(self.parameters["pwd"]) + '\r\n')
             except socket.error, msg:
                 return _('_errorSocket') + '\n' \
                     + 'telnetTorque.Start\n' + str(msg)
@@ -604,6 +604,7 @@ class MainFrame(wx.Frame):
                 return _('_errorThread') + '\n' \
                     + 'telnetTorque.Start\n' + str(msg)
 
+            self.host.set_debuglevel(500)
             return None
 
         return _('_alwaysConnected')
@@ -615,7 +616,7 @@ class MainFrame(wx.Frame):
         if self.host:
             try:
                 self.Continue()
-                self.host.write('CEVAL quit();\n')
+                self.host.write('CEVAL quit();\r\n')
                 time.sleep(2)
                 self.nboo.list_logDisplay.firstTime = True
             except socket.error:

@@ -153,7 +153,7 @@ class PythonSTC(wx.stc.StyledTextCtrl):
 
                     if self.mainFrame.host:
                         x = 'BRKSET' + ' ' + title + ' ' + li \
-                            + ' 0 0 1\r\n'
+                            + ' 0 0 true\r\n'
                         x = str(x)
                         try:
                             self.mainFrame.host.write(x)
@@ -179,7 +179,7 @@ class PythonSTC(wx.stc.StyledTextCtrl):
                     # and send the break order to remove the break point into the torque debugger
 
                     if self.mainFrame.host:
-                        x = 'BRKCLR' + ' ' + title + ' ' + li
+                        x = 'BRKCLR' + ' ' + title + ' ' + li +"\r\n"
                         x = str(x)
                         try:
                             self.mainFrame.host.write(x)
@@ -227,8 +227,8 @@ class PythonSTC(wx.stc.StyledTextCtrl):
 
         if line.startswith('//'):
             return False
-        if line.startswith('function'):
-            return False
+        # if line.startswith('function'):
+        #     return False
         if line.startswith('}'):
             return False
         if line.startswith('{'):
