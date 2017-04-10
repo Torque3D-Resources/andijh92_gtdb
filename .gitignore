@@ -47,7 +47,7 @@ coverage.xml
 .hypothesis/
 
 # Translations
-*.mo
+#*.mo
 *.pot
 
 # Django stuff:
@@ -114,6 +114,7 @@ Makefile.in
 /config.h.in
 /config.sub
 /config.status
+/configure
 /configure.scan
 /depcomp
 /install-sh
@@ -129,3 +130,6 @@ Makefile.in
 /texinfo.tex
 
 /env
+
+# emacs files
+*~
