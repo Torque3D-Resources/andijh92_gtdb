@@ -1,4 +1,4 @@
-AC_INIT([gtdb], [0.1])
+AC_INIT([gtdb],  m4_esyscmd([build-aux/git-version-gen .tarball-version]))
 
 AM_INIT_AUTOMAKE([foreign])
 
