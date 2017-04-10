@@ -9,8 +9,8 @@ GTDB is a graphical debugger for Torque3d (www.torque3d.org), It works on
 GNU/Linux and Windows. It is free/libre software released under the GPLv2
 licence.
 
-Currently, the debugger is only tested on GNU/Linux. It is in alpha state. It
-should work, but there may be some issues.
+Currently, the debugger is only tested on GNU/Linux. It is in alpha state. There
+are some tiny issues. Restarting the game and the debugger often helps.
 
 Philipe Cain is the main author of the debugger.The the development stopped
 in 2008. In 2017 Andreas J. Heil updated the debugger.
@@ -19,25 +19,39 @@ in 2008. In 2017 Andreas J. Heil updated the debugger.
 
 Gtdb has the following prerequisites:\\
  - Python 2.7
- - wxPython 
+ - wxPython 3.0
+
+If you compile it from git source, you also need:
+ - gnu autotools (autoconf, make, automake)
+ - autoconf-archive
+ 
+Currently, you can only compile from git source. Windows is not tested yet.
 
 ** on GNU/Linux
-   
-You can then install gtdb by invoking:\\
-$ cd path/to/gtdb-source\\
-$ ./configure && make && sudo make install
 
-Start gtdb by invoking:\\
+If you use Ubuntu (16.04) you can fetch the prerequisites with the following
+command \\
+$ sudo apt-get install -y python python-wxgtk3.0 autotools-dev autoconf-archive
+make
+
+Compile gtdb with:\\
+$ cd path/to/gtdb\\
+$ ./bootstrap && ./configure && make
+
+Start gtdb with:\\
+$ cd path/to/gtdb\\
+$ ./env gtdb/gtdb
+
+You can also install it after compilation with:\\
+$ cd path/to/gtdb\\
+$ sudo make install
+
+Then you can start it just with: \\
 $ gtdb
-
-Alternatively you can start gtdb directly from the source directory by invoking.\\
-$ cd path/to/gtdb-source\\
-$ ./configure && ./env gtdb/gtdb
 
 ** on Windows
 
-TODO: add documentation
-
+TODO: add me
 
 * Quick Start Tutorial
 
