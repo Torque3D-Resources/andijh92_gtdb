@@ -1,5 +1,10 @@
 """
-Some information from ./configure.
+Some informations from './configure', 'make' and 'make install'.
 """
 
-ABS_TOP_SRCDIR = '@abs_top_srcdir@'
+import sys
+import os
+
+VERSION = '@VERSION@'
+TESTSDIR = os.path.abspath('./tests')
+DATADIR = os.path.abspath('./data') if '${prefix}' in '@datadir@' else '@datadir@'

@@ -25,6 +25,8 @@ import pickle
 
 from gtdb.Parameters import *
 from gtdb.Util import *
+from gtdb.Config import *
+
 _ = lang()
 
 
@@ -181,8 +183,7 @@ class Menu(wx.MenuBar):
         return True
 
     def initLexer(self):
-        dire = os.path.join(ABS_TOP_SRCDIR, DIR_LOCALE)
-        dire = os.path.join(dire, DIR_LEXER)
+        dire = os.path.join(DATADIR, DIR_LEXER)
 
         self.mainFrame.fickey = initFileLexer(os.path.join(dire, KEY1),
                 getAppliFileName(KEY1), 1, self.mainFrame.fickey)

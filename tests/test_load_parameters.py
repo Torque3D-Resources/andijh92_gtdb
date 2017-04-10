@@ -17,7 +17,7 @@ class TestMyApp(unittest.TestCase):
 
     def testConnectMenu(self):
 
-        self.app.frame.OnMenu_OpenLaunch(ABS_TOP_SRCDIR+"/tests/data/testing.TDebug")
+        self.app.frame.OnMenu_OpenLaunch(TESTSDIR+"/data/testing.TDebug")
 
         assert self.app.frame.parameters["engine"] == ""
         assert self.app.frame.parameters["directoryGame"] == "/home/andijh92/src/Uebergame-andijh92/Uebergame"

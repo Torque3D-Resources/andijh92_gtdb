@@ -34,15 +34,14 @@ def lang():
 
     # by default the english language is selected
 
-    DIR = os.path.join(ABS_TOP_SRCDIR, DIR_LOCALE)
-    # lang = wx.Locale(wx.LANGUAGE_DEFAULT).GetCanonicalName().split('_')
+    #lang = wx.Locale(wx.LANGUAGE_DEFAULT).GetCanonicalName().split('_')
 
     # try:
-    #     t = gettext.translation(APPLICATION, DIR, languages=[lang[0]])
+    #     t = gettext.translation(APPLICATION, DATADIR, languages=[lang[0]])
     # except IOError:
-    #     t = gettext.translation(APPLICATION, DIR, languages=['en'])
+    #     t = gettext.translation(APPLICATION, DATADIR, languages=['en'])
 
-    t = gettext.translation(APPLICATION, DIR, languages=['en'])
+    t = gettext.translation(APPLICATION, DATADIR, languages=['en'])
     return t.lgettext
 
 
@@ -83,8 +82,7 @@ def initFileLexer(
 
 
 def getFicNameLocale(di, fi):
-    dire = os.path.join(ABS_TOP_SRCDIR, DIR_LOCALE)
-    fic = os.path.join(dire, di)
+    fic = os.path.join(DATADIR, di)
     fic = os.path.join(fic, fi)
 
     return fic
@@ -94,8 +92,7 @@ def getFileIcon(image):
 
     # path tyo load the images
 
-    icon = os.path.join(DIR_LOCALE, DIR_ICON)
-    icon = os.path.join(ABS_TOP_SRCDIR, icon)
+    icon = os.path.join(DATADIR, DIR_ICON)
 
     icon = os.path.join(icon, image)
 

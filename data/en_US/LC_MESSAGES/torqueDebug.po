@@ -22,7 +22,7 @@ msgstr ""
 #: DebuggerForTorque/lib/TorqueEditorV1_02.py:278
 #: DebuggerForTorque/lib/TorqueEditorV1_03.py:266
 msgid "torqueDebug"
-msgstr "Debugger for Torque Version 2.4"
+msgstr "Debugger for Torque"
 
 #: DebuggerForTorque/DebuggerForTorque.py:169
 msgid "_welcome"
@@ -78,9 +78,7 @@ msgstr "The Torque source directory does not exist"
 #: DebuggerForTorque/DebuggerForTorque.py:336
 msgid "_message-consultSite-lib"
 msgstr ""
-"Please read the documentation with your Internet browser.\n"
-"\n"
-"If the connection from the menu does not work try manually :  http://eviwo.free.fr/"
+"See https://gitlab.com/andijh92/gtdb"
 
 #: DebuggerForTorque/DebuggerForTorque.py:336
 msgid "_message-consultSite"
