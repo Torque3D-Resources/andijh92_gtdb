@@ -2,6 +2,6 @@ image: ubuntu:16.04
 build:
     script:
     - apt-get update -qq && apt-get install -y -qq python python-wxgtk3.0 autotools-dev autoconf-archive make
-    - ./bootstrap && ./configure && make
+    - ./bootstrap && ./configure && make && make install
     only:
     - master

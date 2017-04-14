@@ -43,3 +43,9 @@ gtdbdir = $(pythondir)/gtdb
 lexerdir = $(datadir)/gtdb/lexer
 icondir = $(datadir)/gtdb/icons
 poENUSdir = $(datadir)/gtdb/en_US/LC_MESSAGES
+
+do_subst = sed -e 's,[@]datadir[@],$(datadir)/gtdb,g' \
+					 		 -e 's,[@]VERSION[@],$(VERSION),g'
+
+install-data-local:
+	$(do_subst) < $(srcdir)/gtdb/Config.py.in > $(srcdir)/gtdb/Config.py
