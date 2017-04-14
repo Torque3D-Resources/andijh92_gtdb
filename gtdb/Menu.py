@@ -383,8 +383,7 @@ class Menu(wx.MenuBar):
         # save the file history into the home user
 
         fic = self.fileHistoryInit()
-
-        if fic:
+        if fic and (self.filehistory.GetCount() > 0):
             out = open(fic, 'w+')
             out.write('fileLoad' + ';' + self.mainFrame.fileLoad + ';\n'
                       )
@@ -397,11 +396,7 @@ class Menu(wx.MenuBar):
                     else:
                         break
                 except wx._core.PyAssertionError:
-
-                                                  # specific to windows
-
                     pass
-                    break
 
             out.close()
 
