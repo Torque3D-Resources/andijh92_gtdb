@@ -23,7 +23,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA.... 02110-1301, US
 import wx
 import wx.stc
 import re
-
+import socket
 from gtdb.Parameters import *
 from gtdb.Util import *
 _ = lang()
@@ -152,11 +152,9 @@ class PythonSTC(wx.stc.StyledTextCtrl):
                     # and send the break order to add the break point into.... the torque debugger
 
                     if self.mainFrame.host:
-                        x = 'BRKSET' + ' ' + title + ' ' + li \
-                            + ' 0 0 true\r\n'
-                        x = str(x)
                         try:
-                            self.mainFrame.host.write(x)
+                            sendCmdLn(str('BRKSET' + ' ' + title + ' ' + li \
+                            + ' 0 0 true'))
                         except socket.error:
                             pass
                             return _('_error-host-add')
@@ -179,10 +177,8 @@ class PythonSTC(wx.stc.StyledTextCtrl):
                     # and send the break order to remove the break point into the torque debugger
 
                     if self.mainFrame.host:
-                        x = 'BRKCLR' + ' ' + title + ' ' + li +"\r\n"
-                        x = str(x)
                         try:
-                            self.mainFrame.host.write(x)
+                            sendCmdLn(str('BRKCLR' + ' ' + title + ' ' + li))
                         except socket.error:
                             pass
                             return _('_error-host-delete')
@@ -209,10 +205,8 @@ class PythonSTC(wx.stc.StyledTextCtrl):
                     # and send the break order to remove the break point into the torque debugger
 
                     if self.mainFrame.host:
-                        x = 'BRKCLR' + ' ' + title + ' ' + li
-                        x = str(x)
                         try:
-                            self.mainFrame.host.write(x)
+                            sendCmdLn(str('BRKCLR' + ' ' + title + ' ' + li))
                         except socket.error:
                             pass
                             return _('_error-host-delete')

@@ -13,7 +13,8 @@ gtdb_PYTHON = \
 	gtdb/Util.py \
 	gtdb/App.py \
 	gtdb/Config.py \
-	gtdb/__init__.py
+	gtdb/__init__.py \
+	START_ON_WINDOWS.py
 
 dist_lexer_DATA = \
 	data/lexer/key1.txt \

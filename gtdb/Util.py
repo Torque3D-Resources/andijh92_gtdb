@@ -28,7 +28,7 @@ import gettext
 import shutil
 from gtdb.Config import *
 from gtdb.Parameters import *
-
+import App
 
 def lang():
 
@@ -193,7 +193,12 @@ def launchTorque(self):
         command = os.path.join(self.getParameter(GAME_DIRECTORY), pgm)
         param = str(self.getParameter(GAME_UNIXPARA))
 
-        os.system(command + ' ' + param + ' &')
+        if os.name == 'nt':
+            os.system('START /b' + ' ' + command + ' ' + param)
+        elif os.name == 'posix':
+            os.system(command + ' ' + param + ' &')
+        else:
+            os.system(command + ' ' + param + ' &')
     else:
 
         rc = False
@@ -203,3 +208,7 @@ def launchTorque(self):
     os.chdir(current)
 
     return rc
+
+def sendCmdLn(cmd):
+    cmd = cmd.replace('\\', '/') # for windows
+    App.app.frame.host.write(cmd +'\r\n')

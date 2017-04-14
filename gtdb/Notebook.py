@@ -367,11 +367,9 @@ class LogDisplay(wx.TextCtrl):
                 # if missing file during script compilation found
 
                 if l.startswith('Missing file:'):
-                    (line, err) = l.split(':')
-                    self.getparents().mainFrame.nboo.list_logCompile.Populate(line,
-                            '', err)
-                    self.getparents().mainFrame.SetStatusText(_('_error-compile'
-                            ))
+                    self.getparents().mainFrame.nboo.list_logCompile.Populate(l,
+                                                                              '', '')
+                    self.getparents().mainFrame.SetStatusText(_('_error-compile'))
                     continue
 
                 # if file are missing during script compilation
@@ -508,11 +506,8 @@ class LogDisplay(wx.TextCtrl):
                     (title, line) = l.split(':')
                     title = title.replace('\\', '/')  # windows
                     if line:
-                        x = 'BRKSET' + ' ' + title + ' ' + line \
-                            + ' 0 0 true\r\n'
-                        x = str(x)
-
-                        self.getparents().mainFrame.host.write(x)
+                        sendCmdLn(str('BRKSET' + ' ' + title + ' ' + line \
+                            + ' 0 0 true\r\n'))
 
                 # stop torque waiting
 
@@ -662,10 +657,9 @@ class LogDisplay(wx.TextCtrl):
                     # 0 = mandatory to retieve the value of the local variable
                     # variable : get the value
 
-                    val = str('EVAL ' + filL + '|' + func + '|' + x
-                              + ' 0 ' + x + '\r\n')
                     try:
-                        self.getparents().mainFrame.host.write(val)
+                        sendCmdLn(str('EVAL ' + filL + '|' + func + '|' + x
+                              + ' 0 ' + x + '\r\n'))
                     except AttributeError:
                         pass
                         break

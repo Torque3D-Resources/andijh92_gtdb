@@ -346,9 +346,9 @@ class MainFrame(wx.Frame):
             self.nboo.list_logDisplay.dump = True
             lig = str('EVAL STARTDUMP|' + identifier + ' 0 ' + col4
                       + '.dump()' + '\r\n')
-            self.host.write(lig)
+            sendCmdLn(lig)
             lig = str('EVAL ENDDUMP' + ' 0 ' + col3 + '\r\n')
-            self.host.write(lig)
+            sendCmdLn(lig)
 
     def OnMenu_Exit(self, event):
 
@@ -463,7 +463,7 @@ class MainFrame(wx.Frame):
 
         # manage the pause action to launch during debugging activity
 
-        self.host.write('BRKNEXT\r\n')
+        sendCmdLn('BRKNEXT')
 
     def OnMenu_SaveText(self, event):
         self.editor.saveText(False)
@@ -497,7 +497,7 @@ class MainFrame(wx.Frame):
 
         # manage the set in action to launch during debugging activity
 
-        self.host.write('STEPIN\r\n')
+        sendCmdLn('STEPIN')
 
     def OnMenu_Stop(self, event):
 
@@ -519,20 +519,20 @@ class MainFrame(wx.Frame):
 
         # manage the step over action to launch during debugging activity
 
-        self.host.write('STEPOVER\r\n')
+        sendCmdLn('STEPOVER')
 
     def OnMenu_StepOut(self, event):
 
         # manage the step out action to launch during debugging activity
 
-        self.host.write('STEPOUT\r\n')
+        sendCmdLn('STEPOUT')
 
     def OnMenu_RemAllBreak(self, event):
 
         # manage the remove of all the break points
 
         self.Continue()
-        self.host.write('BRKCLRALL\r\n')
+        sendCmdLn('BRKCLRALL')
         self.nboo.list_breakPoint.reset()
 
 # -------------------------------------------------------------------------------
@@ -581,7 +581,7 @@ class MainFrame(wx.Frame):
     def Continue(self):
         self.toolBar.enableDebug(False)
         self.editor.MarkerDelete(self.nboo.list_logDisplay.marker, 2)
-        self.host.write('CONTINUE\r\n')
+        sendCmdLn('CONTINUE')
 
     def Start(self):
 
@@ -592,7 +592,7 @@ class MainFrame(wx.Frame):
         if not self.host:
             try:
                 self.host = telnetlib.Telnet(self.server, int(self.parameters["port"]))
-                self.host.write(str(self.parameters["pwd"]) + '\r\n')
+                sendCmdLn(str(self.parameters["pwd"]))
             except socket.error, msg:
                 return _('_errorSocket') + '\n' \
                     + 'telnetTorque.Start\n' + str(msg)
@@ -616,7 +616,7 @@ class MainFrame(wx.Frame):
         if self.host:
             try:
                 self.Continue()
-                self.host.write('CEVAL quit();\r\n')
+                sendCmdLn('CEVAL quit();')
                 time.sleep(2)
                 self.nboo.list_logDisplay.firstTime = True
             except socket.error:
