@@ -1,27 +1,26 @@
 import unittest
 import wx
 from gtdb.Config import *
-from gtdb.App import *
+# I cannot use 'import *' here. Otherwise I get an error in gtdb/Util.py .
+import gtdb.App
 
 
 class TestMyApp(unittest.TestCase):
 
     def setUp(self):
 
-        self.app = MainApp(0)
+        gtdb.App.app = gtdb.App.MainApp(0)
 
     def tearDown(self):
 
-        wx.CallAfter(self.app.Exit)
-        self.app.MainLoop()
+        wx.CallAfter(gtdb.App.app.Exit)
+        gtdb.App.app.MainLoop()
 
     def testConnectMenu(self):
 
-        self.app.frame.OnMenu_OpenLaunch(TESTSDIR+"/data/testing.TDebug")
-
-        self.app.frame.OnMenu_Start(True)
-
-        assert self.app.frame.host
+        gtdb.App.app.frame.OnMenu_OpenLaunch(TESTSDIR+'/data/testing.gtdb')
+        gtdb.App.app.frame.OnMenu_Start(True)
+        assert gtdb.App.app.frame.host
 
 if __name__ == '__main__':
     unittest.main()

@@ -50,7 +50,7 @@ ICON_SAVE = 'Save.png'
 
 # value used to save the game debug environment
 
-EXT_DEBUG = '.TDebug'
+EXT_DEBUG = '.gtdb'
 GAME_DIRECTORY = 'directoryGame'
 GAME_FILESCRIPT = 'fileScript'
 GAME_FILEBINARY = 'fileBinary'

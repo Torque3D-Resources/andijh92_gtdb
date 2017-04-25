@@ -368,7 +368,7 @@ class MainFrame(wx.Frame):
             message=_('_ChooseFile'),
             defaultDir=getHomeUser(),
             defaultFile='',
-            wildcard=_('_Debug-Environment') + ' *.TDebug |*.TDebug',
+            wildcard=_('_Debug-Environment') + ' *'+EXT_DEBUG+' |*'+EXT_DEBUG,
             style=wx.OPEN | wx.CHANGE_DIR,
             )
 

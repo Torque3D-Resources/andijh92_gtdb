@@ -21,7 +21,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA.... 02110-1301, US
 """
 
 import wx
-import pickle
+import json
 
 from gtdb.Parameters import *
 from gtdb.Util import *
@@ -169,7 +169,7 @@ class Menu(wx.MenuBar):
         if self.getEnvFile():
             inp = open(self.getEnvFile())
             try:
-                self.mainFrame.parameters = pickle.load(inp)
+                self.mainFrame.parameters = json.load(inp)
             except:
                 pass
                 inp.close()
@@ -241,7 +241,7 @@ class Menu(wx.MenuBar):
 
             try:
                 output = open(fil, 'w+')
-                pickle.dump(self.mainFrame.parameters, output)
+                json.dump(self.mainFrame.parameters, output)
             except:
                 output.close()
                 self.mainFrame.parameters = {}

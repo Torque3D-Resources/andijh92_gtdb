@@ -7,4 +7,4 @@ import os
 
 VERSION = '0.1.4-daf3-dirty'
 TESTSDIR = os.path.abspath('./tests')
-DATADIR = os.path.abspath('./data') if '${prefix}' in '${prefix}/share' else '${prefix}/share'
+DATADIR = os.path.abspath('./data') if '${prefix}' in '/usr/local/share/gtdb' else '/usr/local/share/gtdb'
