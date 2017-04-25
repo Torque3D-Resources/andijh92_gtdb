@@ -8,9 +8,9 @@
 
 GTDB is a graphical debugger for Torque3d (www.torque3d.org). It works on
 GNU/Linux and Windows. It is free/libre software released under the GPLv2
-licence.
+licence. The current version is 0.2.
 
-The debugger is in alpha state. There are some tiny issues. Restarting the game
+The debugger is in beta state. There are some tiny issues. Restarting the game
 and the debugger often helps.
 
 Philipe Cain is the main author of the debugger. The the development stopped
@@ -52,7 +52,7 @@ $ gtdb
 
 You can easily install the prerequisites with the package manager chocolatey. If
 you have chocolatey installed, you can run: \\
-$ choco install wxpython
+$ choco -y install wxpython
 
 To run gtdb, execute the script in the main gtdb source folder named
 "START_ON_WINDOWS.py" with python. This may look like that: 'right click on the
@@ -67,3 +67,13 @@ http://eviwo.free.fr/torque/Debugger-documentation.html#Quick_start .
 
 If you have problems, don't hesitate and write a mail: \\
 andijh92 @@ gmx DOT at
+* News
+
+Version 0.2
+- Windows support
+- Loading *.TDebug files from an untrusted source could lead to execution of
+  malicious code . Now it's fixed. The parameter files have the new extension
+  ".gtdb".
+
+Version 0.1
+- first release
