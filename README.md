@@ -2,22 +2,22 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org042d079">1. About</a></li>
-<li><a href="#org596611f">2. Setup</a>
+<li><a href="#org5c0f5b7">1. About</a></li>
+<li><a href="#orgabafad4">2. Setup</a>
 <ul>
-<li><a href="#org07e232e">2.1. on GNU/Linux</a></li>
-<li><a href="#orgae5857f">2.2. on Windows</a></li>
+<li><a href="#org371974b">2.1. on GNU/Linux</a></li>
+<li><a href="#orgd6c586f">2.2. on Windows</a></li>
 </ul>
 </li>
-<li><a href="#orgabe48f1">3. Quick Start Tutorial</a></li>
-<li><a href="#org9d70fda">4. Contact</a></li>
-<li><a href="#org67927bd">5. News</a></li>
+<li><a href="#org1d45712">3. Quick Start Tutorial</a></li>
+<li><a href="#orga5e82a0">4. Contact</a></li>
+<li><a href="#orgc3c4fea">5. News</a></li>
 </ul>
 </div>
 </div>
 
 
-<a id="org042d079"></a>
+<a id="org5c0f5b7"></a>
 
 # About
 
@@ -32,7 +32,7 @@ Philipe Cain is the main author of the debugger. The the development stopped
 in 2008. In 2017 Andreas J. Heil updated the debugger.
 
 
-<a id="org596611f"></a>
+<a id="orgabafad4"></a>
 
 # Setup
 
@@ -47,7 +47,7 @@ If you compile it from git source on GNU/Linux, you also need:
 -   autoconf-archive
 
 
-<a id="org07e232e"></a>
+<a id="org371974b"></a>
 
 ## on GNU/Linux
 
@@ -72,7 +72,7 @@ Then you can start it just with:
 $ gtdb
 
 
-<a id="orgae5857f"></a>
+<a id="orgd6c586f"></a>
 
 ## on Windows
 
@@ -85,7 +85,7 @@ To run gtdb, execute the script in the main gtdb source folder named
 file' -> 'open with' -> 'python.exe'
 
 
-<a id="orgabe48f1"></a>
+<a id="org1d45712"></a>
 
 # Quick Start Tutorial
 
@@ -93,7 +93,7 @@ You can find a quick start tutorial on the following page:
 <http://eviwo.free.fr/torque/Debugger-documentation.html#Quick_start> .
 
 
-<a id="org9d70fda"></a>
+<a id="orga5e82a0"></a>
 
 # Contact
 
@@ -101,7 +101,7 @@ If you have problems, don't hesitate and write a mail:
 andijh92 @@ gmx DOT at
 
 
-<a id="org67927bd"></a>
+<a id="orgc3c4fea"></a>
 
 # News
 
@@ -111,7 +111,7 @@ Version 0.3
 
 Starting a game with gtdb using a malicious .gtdb file can lead to the execution
 of malicious code. Now, there is a warning about that. In the next version of
-gtdb you can hide hide the warning permanently.
+gtdb you can hide the warning permanently.
 
 Version 0.2
 

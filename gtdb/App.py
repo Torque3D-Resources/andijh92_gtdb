@@ -685,5 +685,5 @@ class MainApp(wx.App):
         self.frame = MainFrame(None, -1)
         self.frame.Show(True)
         self.SetTopWindow(self.frame)
-
+        wx.MessageBox("""Attention: Starting a game with gtdb using a malicious .gtdb file can lead to the execution of malicious code.\n\nIn the next version of gtdb you can hide the warning permanently.""", 'Info', wx.OK | wx.ICON_INFORMATION)
         return True
