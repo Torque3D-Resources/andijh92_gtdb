@@ -170,8 +170,8 @@ class Menu(wx.MenuBar):
             inp = open(self.getEnvFile())
             try:
                 self.mainFrame.parameters = json.load(inp)
+                wx.MessageBox("""Attention: Starting a game with gtdb using a malicious .gtdb file can lead to the execution of malicious code.\n\nIn the next version of gtdb you can hide hide the warning permanently.""", 'Info', wx.OK | wx.ICON_INFORMATION)
             except:
-                pass
                 inp.close()
                 self.mainFrame.parameters = {}
                 self.mainFrame.SetStatusText(_('_errorReadEnv'))

@@ -2,22 +2,22 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga59573e">1. About</a></li>
-<li><a href="#org8482f24">2. Setup</a>
+<li><a href="#org042d079">1. About</a></li>
+<li><a href="#org596611f">2. Setup</a>
 <ul>
-<li><a href="#org32fe6d8">2.1. on GNU/Linux</a></li>
-<li><a href="#org5ab717f">2.2. on Windows</a></li>
+<li><a href="#org07e232e">2.1. on GNU/Linux</a></li>
+<li><a href="#orgae5857f">2.2. on Windows</a></li>
 </ul>
 </li>
-<li><a href="#org07131d3">3. Quick Start Tutorial</a></li>
-<li><a href="#org649bafd">4. Contact</a></li>
-<li><a href="#org54b40d0">5. News</a></li>
+<li><a href="#orgabe48f1">3. Quick Start Tutorial</a></li>
+<li><a href="#org9d70fda">4. Contact</a></li>
+<li><a href="#org67927bd">5. News</a></li>
 </ul>
 </div>
 </div>
 
 
-<a id="orga59573e"></a>
+<a id="org042d079"></a>
 
 # About
 
@@ -32,7 +32,7 @@ Philipe Cain is the main author of the debugger. The the development stopped
 in 2008. In 2017 Andreas J. Heil updated the debugger.
 
 
-<a id="org8482f24"></a>
+<a id="org596611f"></a>
 
 # Setup
 
@@ -47,7 +47,7 @@ If you compile it from git source on GNU/Linux, you also need:
 -   autoconf-archive
 
 
-<a id="org32fe6d8"></a>
+<a id="org07e232e"></a>
 
 ## on GNU/Linux
 
@@ -72,7 +72,7 @@ Then you can start it just with:
 $ gtdb
 
 
-<a id="org5ab717f"></a>
+<a id="orgae5857f"></a>
 
 ## on Windows
 
@@ -85,7 +85,7 @@ To run gtdb, execute the script in the main gtdb source folder named
 file' -> 'open with' -> 'python.exe'
 
 
-<a id="org07131d3"></a>
+<a id="orgabe48f1"></a>
 
 # Quick Start Tutorial
 
@@ -93,7 +93,7 @@ You can find a quick start tutorial on the following page:
 <http://eviwo.free.fr/torque/Debugger-documentation.html#Quick_start> .
 
 
-<a id="org649bafd"></a>
+<a id="org9d70fda"></a>
 
 # Contact
 
@@ -101,16 +101,22 @@ If you have problems, don't hesitate and write a mail:
 andijh92 @@ gmx DOT at
 
 
-<a id="org54b40d0"></a>
+<a id="org67927bd"></a>
 
 # News
+
+Version 0.3
+
+-   Security issue:
+
+Starting a game with gtdb using a malicious .gtdb file can lead to the execution
+of malicious code. Now, there is a warning about that. In the next version of
+gtdb you can hide hide the warning permanently.
 
 Version 0.2
 
 -   Windows support
--   Loading \*.TDebug files from an untrusted source could lead to execution of
-    malicious code . Now it's fixed. The parameter files have the new extension
-    ".gtdb".
+-   The parameter files have the new extension ".gtdb".
 
 Version 0.1
 
