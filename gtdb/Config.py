@@ -1,5 +1,7 @@
 """
 Some informations from './configure', 'make' and 'make install'.
+
+
 """
 
 import sys

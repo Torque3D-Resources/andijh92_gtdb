@@ -2,8 +2,11 @@
 # -*- coding: utf-8 -*-
 
 """
-Debugger for Torque , more information http://www.garagegames.com/products/torque/tge/.
-Copyright (C) 2007....philippe.cain@orange.fr, more information http://eviwo.free.fr/torque/Debugger-documentation.html
+GTDB --- A Graphical Debugger for Torque3D
+
+This file is part of GTDB.
+
+Copyright (C) 2017 by Andreas Josef Heil <andijh92@gmx.at>
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -18,6 +21,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA.... 02110-1301, USA.
+
+Some informations from './configure', 'make' and 'make install'.
 """
 
 import gtdb.App
