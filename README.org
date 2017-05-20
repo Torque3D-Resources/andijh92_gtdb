@@ -69,13 +69,15 @@ If you have problems, don't hesitate and write a mail: \\
 andijh92 @@ gmx DOT at
 * News
 
-Version 0.3
-- Security issue: 
-Starting a game with gtdb using a malicious .gtdb file can lead to the execution
-of malicious code. Now, there is a warning about that. In the next version of
-gtdb you can hide the warning permanently.
+version 0.4
+- new feature: hide security warning
 
-Version 0.2
+version 0.3
+- security issue: 
+Starting a game with gtdb using a malicious .gtdb file can lead to the execution
+of malicious code. Now, there is a warning about that.
+
+version 0.2
 - Windows support
 - The parameter files have the new extension ".gtdb".
 
