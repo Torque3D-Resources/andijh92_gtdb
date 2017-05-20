@@ -29,6 +29,7 @@ import shutil
 from gtdb.Config import *
 from gtdb.Parameters import *
 import App
+import json
 
 def lang():
 
@@ -82,6 +83,7 @@ def initFileLexer(
 
 
 def getFicNameLocale(di, fi):
+
     fic = os.path.join(DATADIR, di)
     fic = os.path.join(fic, fi)
 
@@ -209,6 +211,30 @@ def launchTorque(self):
 
     return rc
 
+
 def sendCmdLn(cmd):
-    cmd = cmd.replace('\\', '/') # for windows
-    App.app.frame.host.write(cmd +'\r\n')
+
+    cmd = cmd.replace('\\', '/')  # for windows
+    App.app.frame.host.write(cmd + '\r\n')
+
+
+def rcFile():
+
+    rcfile = os.path.expanduser('~/.gtdbrc')
+    if os.name == 'nt':
+        rcfile = rcfile.replace('/', '\\')
+    return rcfile
+
+def loadSettings():
+
+    if os.path.isfile(rcFile()):
+        with open(rcFile()) as f:
+            App.settings = json.load(f)
+    else:
+        App.settings = {'hideSecWarnDlg': 'n'}
+
+
+def dumpSettings():
+
+    with open(rcFile(), 'w+') as rc_file:
+        json.dump(App.settings, rc_file)

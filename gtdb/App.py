@@ -44,12 +44,14 @@ from gtdb.Connect import *
 from gtdb.Console import *
 from gtdb.Editor import *
 
+from gtdb.SecWarningDlg import *
+
 _ = lang()
 
 EVT_TORQUE_TELNET_ID = wx.NewId()
 
 app = None
-
+settings = {}
 
 def EVT_TORQUE_TELNET(win, func):
     win.Connect(-1, -1, EVT_TORQUE_TELNET_ID, func)
@@ -74,6 +76,7 @@ class MainFrame(wx.Frame):
         self.password = CONNECT_PWD
         self.timerInterval = 0.5  # the thread to read the port is launched every timeInterval
         self.fickey = {}  # list of keyword for lexer
+        loadSettings()
 
 # -------------------------------------------------------------------------------
 # ........ MENU & GUI DECALARATION AND EVENTS
@@ -201,7 +204,7 @@ class MainFrame(wx.Frame):
         self.menu.fileHistoryLoad()
         self.menu.initLexer()
 
-        # ----------- Spash screen --------------------------------------------------
+        # ----------- SPLASH SCREEN --------------------------------------------------
 
 #        splash = MySplashScreen()
 #        splash.Show()
@@ -211,6 +214,12 @@ class MainFrame(wx.Frame):
         self.CenterOnScreen()
         self.GetBestSize()
         self.Show()
+
+        # ----------- SECURITY WARNING DIALOG --------------------------------------------------
+
+        if not(settings['hideSecWarnDlg'] == 'y'):
+            swdl = SecWarningDlg(self, -1)
+            swdl.Show()
 
         # test
         # MyTorqueMap().load('/home/philippe/Projects/boomboom152/game/data/missions/Map1.mis')
@@ -685,5 +694,5 @@ class MainApp(wx.App):
         self.frame = MainFrame(None, -1)
         self.frame.Show(True)
         self.SetTopWindow(self.frame)
-        wx.MessageBox("""Attention: Starting a game with gtdb using a malicious .gtdb file can lead to the execution of malicious code.\n\nIn the next version of gtdb you can hide the warning permanently.""", 'Info', wx.OK | wx.ICON_INFORMATION)
+
         return True

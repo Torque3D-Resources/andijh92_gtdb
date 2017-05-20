@@ -13,6 +13,7 @@ gtdb_PYTHON = \
 	gtdb/Util.py \
 	gtdb/App.py \
 	gtdb/Config.py \
+	gtdb/SecWarningDlg.py \
 	gtdb/__init__.py \
 	START_ON_WINDOWS.py
 
